@@ -17,9 +17,9 @@ class Employee {
 //task 2: create a department class
 
 class Department {
-    constructor(name, employees) {
+    constructor(name) {
         this.name = name;
-        this.employees = [employees]; 
+        this.employees = []; 
     }
 
     addEmployee(employee) {
@@ -27,7 +27,15 @@ class Department {
     }
 
     getDepartmentSalary() {
-        return this.employees.reduce((total, employee) + total + employee.salary, 0);
+        return this.employees.reduce((total, employee) => total + employee.salary, 0);
+    }
+
+    calculateTotalSalaryWithBonus() {
+        if (employee instanceof Manager) {
+            return this.employees.reduce((total, employee) => total + employee.salary + employee.bonus, 0);
+        } else {
+            console.log("This employee is not a manager.");
+        }
     }
 }
 
@@ -44,3 +52,6 @@ class Manager extends Employee {
         console.log(`${this.name} works as a ${this.position} earning $${this.salary}. Their bonus earnings are ${this.bonus}.`);
     }
 }
+
+
+//task 4: handle bonuses for managers (added above)
